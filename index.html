@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <title>ZaraCloud | Catalogue</title>
+  <style>
+    :root{--lavender:#eee5f6;--purple:#765391;--ink:#332b39;--muted:#9d92a4}
+    *{box-sizing:border-box}body{margin:0;background:#fff;color:var(--ink);font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
+    .wrap{max-width:850px;margin:auto;padding:0 14px}.brand{text-align:center;padding:34px 0 23px}
+    .brand-name{display:inline-block;background:#e8def0;color:#4f3e5c;font-family:Georgia,serif;font-size:29px;letter-spacing:2px;padding:16px 25px}
+    .brand img{max-width:210px;max-height:95px;object-fit:contain}.brand p{font-size:10px;color:#8b7998;letter-spacing:1.1px;line-height:1.8;margin:15px 0 0}
+    section{padding:14px 0 30px;border-bottom:1px solid #eee7f1}h2{text-align:center;font-family:Georgia,serif;font-weight:normal;font-size:24px;margin:12px 0 22px;color:#4e3d5b}
+    .sale-heading{background:#f0e8f6;text-align:center;padding:13px 5px 11px;margin-bottom:21px}.sale-heading h2{margin:0;font-size:23px;color:#624878}.sale-heading p{font-size:10px;color:#866e99;letter-spacing:1px;margin:8px 0 0}
+    .underline{width:38px;height:2px;background:#d8c4e8;margin:-12px auto 22px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:23px 13px}
+    .product{min-width:0}.photo{width:100%;aspect-ratio:3/4;border-radius:6px;background:#f4f0f6;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;overflow:hidden}
+    .product:nth-child(even) .photo{background:#f8f5fa}.photo svg{width:29px;height:29px;stroke:#b5a2c2;fill:none;stroke-width:1.5}.photo span{font-size:11px;color:#a28eaf}.photo img{display:block;width:100%;height:100%;object-fit:cover}
+    .name{font-size:13px;font-weight:600;margin:9px 0 6px;line-height:1.35}.price{display:flex;gap:9px;align-items:baseline;flex-wrap:wrap;margin-bottom:8px}.price strong{font-size:14px;color:#332b39}.sale .price strong{color:var(--purple)}.old{color:var(--muted);text-decoration:line-through;font-size:11px}
+    .sizes{display:flex;gap:4px;flex-wrap:wrap}.size{background:#f0e8f6;color:#765a91;border-radius:3px;font-size:10px;padding:5px 8px;font-weight:600}
+    .delivery{display:inline-flex;gap:5px;align-items:center;background:#eee5f6;color:#6e5289;border-radius:3px;font-size:10px;font-weight:600;padding:6px 8px;margin-top:8px}
+    .delivery svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.8}
+    footer{text-align:center;padding:36px 0 45px}footer h3{font-family:Georgia,serif;font-weight:normal;letter-spacing:2px;color:#59456b;font-size:19px}footer p{font-size:12px;color:#8b7998;line-height:1.6}footer a{font-size:12px;color:#765391;text-decoration:none;margin:0 8px}
+    @media(min-width:600px){.wrap{padding:0 28px}.grid{gap:30px 22px}.name{font-size:15px}.price strong{font-size:16px}.size{font-size:11px}.brand{padding-top:42px}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="brand"><div class="brand-name" id="brandName">ZARA CLOUD</div><p>COD AVAILABLE · ISLANDWIDE DELIVERY · LIMITED STOCK</p></header>
+    <div id="catalogue"></div>
+    <footer><h3>ZARA CLOUD</h3><p>To order, send us a screenshot or product name.</p><a href="https://www.instagram.com/zaracloud.co/" target="_blank" rel="noopener">Instagram @zaracloud.co</a><a href="https://wa.me/94763908909" target="_blank" rel="noopener">WhatsApp</a></footer>
+  </main>
+  <script>
+    // Each item: [name, price, available sizes, free delivery, original price if on sale].
+    // To remove a sold-out size later, simply delete it from the sizes string.
+    const collections = [
+      {title:'Clearance Sale',items:[
+        ['Green V Short',1500,'XS,S,M,L',true,2000],
+        ['Light Green Basic',1500,'XS,S,M,L',true,1750],
+        ['Blue V Short',1750,'S,L',false,2000],
+        ['White V Short',1750,'XS,S,M',false,2000],
+        ['White V Long',1950,'XS,M,L',false,2150],
+        ['Dotted Top',1500,'XS,S,M',false,1850],
+        ['Brown Shoulder Top',1450,'S,M,L',false,1850],
+        ['Two Way Top',1650,'S,L',false,1950],
+        ['Brown Short Dress',2500,'XS,S,M,L',true,2580],
+        ['Black Short Dress',2500,'XS,S',true,2580],
+        ['Blue Short Dress',2500,'XS,S',true,2580],
+        ['Black Crush Pant',2500,'S,M',true],
+        ['White Crush Pant',2500,'M',true],
+        ['Brown Crush Pant',2500,'S,M',true]
+      ]},
+      {title:'Basics',items:[
+        ['Black Basic',1750,'XS,S,M,L'],['White Basic',1750,'XS,S,M,L'],
+        ['Brown Basic',1750,'XS,S,M,L'],['Rosewood Basic',1750,'S,M'],
+        ['Dark Green Basic',1750,'XS,S,M'],['Dark Blue Basic',1750,'XS,S,M'],
+        ['Light Blue Basic',1750,'XS,S,M'],['Sky Blue Basic',1750,'S,M,L'],
+        ['Red Basic',1750,'XS,S,M'],['Pink Basic',1750,'XS,S,M,L'],
+        ['Yellow Basic',1750,'XS,S,M'],['Mint Basic',1750,'XS,S,M']
+      ]},
+      {title:'Long Dresses',items:[
+        ['Burgundy Long Dress',2650,'XS,S,M,L',true],
+        ['Black Long Dress',2650,'S,M,L',true]
+      ]},
+      {title:'Other Tops',items:[
+        ['Bow Top (Girly)',2000,'XS,S,M,L'],
+        ['Cherry Top',2350,'XS,S,M,L',true],
+        ['Dark Blue Wrap',2450,'XS,M'],
+        ['Light Blue Wrap',2450,'XS,S,M'],
+        ['Blue V Long',2150,'XS,S,L'],
+        ['Lace Top',2550,'XS,S,M,L'],
+        ['Tie Halter',2450,'XS,S,M,L'],
+        ['Bodysuit',2550,'XS,S,M,L']
+      ]},
+      {title:'One Shoulder Tees',items:[
+        ['Shell Tee',2850,'Free Size'],
+        ['London Tee',2850,'Free Size'],
+        ['Margarita Tee',2850,'Free Size'],
+        ['Black London Tee',2850,'Free Size']
+      ]},
+      {title:'Linen Pants',items:[
+        ['Black Linen Pant',2750,'Free Size'],
+        ['White Linen Pant',2750,'Free Size']
+      ]}
+    ];
+
+    const imageIcon='<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m3 17 5-5 4 4 3-3 6 6"/></svg>';
+    const truckIcon='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h11v11H3zM14 10h4l3 4v3h-7z"/><circle cx="7.5" cy="18" r="2"/><circle cx="17.5" cy="18" r="2"/></svg>';
+    const slug=name=>name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+    const money=n=>'Rs. '+n.toLocaleString('en-US');
+    const safe=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const root=document.getElementById('catalogue');
+    collections.forEach((collection,index)=>{
+      const section=document.createElement('section');
+      section.className=index===0?'sale':'';
+      const heading=index===0
+        ?'<div class="sale-heading"><h2>CLEARANCE SALE</h2><p>14 SELECTED DESIGNS · LIMITED STOCK</p></div>'
+        :'<h2>'+safe(collection.title)+'</h2><div class="underline"></div>';
+      section.innerHTML=heading+'<div class="grid"></div>';
+      const grid=section.querySelector('.grid');
+      collection.items.forEach(([name,price,sizes,free=false,original])=>{
+        const product=document.createElement('article');
+        product.className='product';
+        const photoName=slug(name)+'.jpg';
+        product.innerHTML=`<div class="photo">${imageIcon}<span>Product photo</span></div>
+          <div class="name">${safe(name)}</div>
+          <div class="price">${original&&original>price?`<span class="old">${money(original)}</span>`:''}<strong>${money(price)}</strong></div>
+          <div class="sizes">${sizes.split(',').map(size=>`<span class="size">${safe(size)}</span>`).join('')}</div>
+          ${free?`<div class="delivery">${truckIcon} FREE DELIVERY</div>`:''}`;
+        // Add photos later by dragging JPGs into a GitHub folder named "images".
+        // Example: images/green-v-short.jpg
+        const img=new Image();
+        img.alt=name;
+        img.loading='lazy';
+        img.onload=()=>{const box=product.querySelector('.photo');box.replaceChildren(img)};
+        img.src='images/'+photoName;
+        grid.appendChild(product);
+      });
+      root.appendChild(section);
+    });
+    // Optional logo: upload an image named logo.png to the repository root.
+    const logo=new Image();
+    logo.alt='ZaraCloud';
+    logo.onload=()=>document.getElementById('brandName').replaceWith(logo);
+    logo.src='logo.png';
+  </script>
+</body>
+</html>
