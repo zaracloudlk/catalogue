@@ -338,21 +338,21 @@
 
     const blackFriday = true;
 
-    // Special Black Friday prices.
-    // Previous original prices remain preserved.
-
     const specialPrices = {
       'Light Green V Short':1500,
       'Light Green Basic':1500
     };
 
-    // Temporarily hidden until stock is confirmed on Monday.
+    // Hidden products.
     // Product details and photos are preserved.
+    // Blue Short Dress, Blue V Long and Light Blue Wrap
+    // are planned to return on Monday.
 
     const hiddenProducts = [
       'Blue Short Dress',
       'Blue V Long',
-      'Light Blue Wrap'
+      'Light Blue Wrap',
+      'Dark Green Basic'
     ];
 
     // Each item:
@@ -361,10 +361,10 @@
     const collections = [
 
       {title:'Clearance Sale',items:[
-        ['Light Green V Short',1500,'XS,S,M',true,2000],
+        ['Light Green V Short',1500,'M',true,2000],
         ['Light Green Basic',1500,'XS,S,M,L',true,1750],
         ['Blue V Short',1750,'L',false,2000],
-        ['White V Short',1750,'XS,S,M',false,2000],
+        ['White V Short',1750,'S,M',false,2000],
         ['White V Long',1950,'XS,M,L',false,2150],
         ['Two Way Top',1650,'L',false,1950],
         ['Dotted Top',1650,'XS,S,M',false,1850],
@@ -377,7 +377,7 @@
       ]},
 
       {title:'Basics',items:[
-        ['Black Basic',1750,'XS,S,M,L'],
+        ['Black Basic',1750,'S,M,L'],
         ['White Basic',1750,'XS,S,M,L'],
         ['Brown Basic',1750,'XS,S,M,L'],
         ['Rosewood Basic',1750,'S,M'],
@@ -398,7 +398,7 @@
 
       {title:'Other Tops',items:[
         ['Girly Top',2000,'XS,S,M,L'],
-        ['Cherry Top',2350,'XS,S,M,L',true],
+        ['Cherry Top',2350,'XS,M,L',true],
         ['Dark Blue Wrap',2450,'XS'],
         ['Light Blue Wrap',2450,'XS'],
         ['Blue V Long',2150,'XS,S,L'],
