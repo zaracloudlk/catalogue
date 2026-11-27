@@ -129,7 +129,9 @@
       gap:23px 13px;
     }
 
-    .product{min-width:0}
+    .product{
+      min-width:0;
+    }
 
     .photo{
       width:100%;
@@ -331,16 +333,26 @@
 
   <script>
 
-    // Change to false after Black Friday to restore clearance prices.
+    // BLACK FRIDAY MODE
+    // Change to false after November 29th to restore clearance prices.
+
     const blackFriday = true;
 
-    // Previous clearance prices are preserved.
+    // Special Black Friday prices for selected products.
+    // Previous original prices remain preserved.
+
+    const specialPrices = {
+      'Light Green V Short':1500,
+      'Light Green Basic':1500
+    };
+
+    // Inventory updated November 27, 2026.
     // Each item: [name, price, sizes, free delivery, original price]
 
     const collections = [
 
       {title:'Clearance Sale',items:[
-        ['Light Green V Short',1500,'XS,S,M,L',true,2000],
+        ['Light Green V Short',1500,'XS,S,M',true,2000],
         ['Light Green Basic',1500,'XS,S,M,L',true,1750],
         ['Blue V Short',1750,'S,L',false,2000],
         ['White V Short',1750,'XS,S,M',false,2000],
@@ -351,7 +363,6 @@
         ['Brown Short Dress',2500,'XS,S,M,L',true,2580],
         ['Black Short Dress',2500,'XS,S',true,2580],
         ['Blue Short Dress',2500,'XS,S',true,2580],
-        ['Black Crush Pant',2500,'S,M',true],
         ['White Crush Pant',2500,'M',true],
         ['Brown Crush Pant',2500,'S,M',true]
       ]},
@@ -364,23 +375,23 @@
         ['Dark Green Basic',1750,'XS,S,M'],
         ['Dark Blue Basic',1750,'XS,S,M'],
         ['Light Blue Basic',1750,'XS,S,M'],
-        ['Sky Blue Basic',1750,'S,M,L'],
+        ['Sky Blue Basic',1750,'M,L'],
         ['Red Basic',1750,'XS,S,M'],
-        ['Pink Basic',1750,'XS,S,M,L'],
+        ['Pink Basic',1750,'XS,S,M'],
         ['Yellow Basic',1750,'XS,S,M'],
         ['Mint Basic',1750,'XS,S,M']
       ]},
 
       {title:'Long Dresses',items:[
-        ['Burgundy Long Dress',2650,'XS,S,M,L',true],
+        ['Burgundy Long Dress',2650,'XS,S,M',true],
         ['Black Long Dress',2650,'S,M,L',true]
       ]},
 
       {title:'Other Tops',items:[
         ['Girly Top',2000,'XS,S,M,L'],
         ['Cherry Top',2350,'XS,S,M,L',true],
-        ['Dark Blue Wrap',2450,'XS,M'],
-        ['Light Blue Wrap',2450,'XS,S,M'],
+        ['Dark Blue Wrap',2450,'XS'],
+        ['Light Blue Wrap',2450,'XS,M'],
         ['Blue V Long',2150,'XS,S,L'],
         ['Lace Top',2550,'XS,S,M,L'],
         ['Tie Halter',2450,'XS,S,M,L'],
@@ -400,6 +411,11 @@
       ]}
 
     ];
+
+    // Hidden products:
+    // Black Crush Pant - sold out.
+    // White Tie Shirt, Maza Shirt and Black Shoulder Top
+    // remain hidden as previously requested.
 
     const blackFridayBanner=`
       <div class="sale-heading">
@@ -483,7 +499,10 @@
 
         heading=blackFriday
           ?blackFridayBanner
-          :'<div class="sale-heading"><h2>CLEARANCE SALE</h2><p>14 SELECTED DESIGNS · LIMITED STOCK</p></div>';
+          :`<div class="sale-heading">
+              <h2>CLEARANCE SALE</h2>
+              <p>${collection.items.length} SELECTED DESIGNS · LIMITED STOCK</p>
+            </div>`;
 
       }else{
 
@@ -504,7 +523,7 @@
         const photoName=slug(name)+'.jpg';
 
         const displayPrice=blackFriday
-          ?(original??price)
+          ?(specialPrices[name]??original??price)
           :price;
 
         const showOldPrice=!blackFriday&&original&&original>price;
