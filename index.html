@@ -190,8 +190,8 @@
       color:#332b39;
     }
 
-    .sale .price strong{
-      color:var(--purple);
+    .sale-price{
+      color:var(--purple) !important;
     }
 
     .old{
@@ -320,6 +320,8 @@
       <p>COD AVAILABLE · ISLANDWIDE DELIVERY · LIMITED STOCK</p>
     </header>
 
+    <div id="promotion"></div>
+
     <div id="catalogue"></div>
 
     <footer>
@@ -334,7 +336,9 @@
   <script>
 
     // BLACK FRIDAY MODE
-    // Change to false after November 29th to restore clearance prices.
+    // Change to false after November 29th
+    // to restore previous clearance prices
+    // and individual free delivery labels.
 
     const blackFriday = true;
 
@@ -343,16 +347,15 @@
       'Light Green Basic':1500
     };
 
-    // Hidden products.
+    // Temporarily hidden products.
     // Product details and photos are preserved.
-    // Blue Short Dress, Blue V Long and Light Blue Wrap
-    // are planned to return on Monday.
 
     const hiddenProducts = [
+      'White Basic',
       'Blue Short Dress',
       'Blue V Long',
       'Light Blue Wrap',
-      'Dark Green Basic'
+      'White V Short'
     ];
 
     // Each item:
@@ -360,72 +363,124 @@
 
     const collections = [
 
-      {title:'Clearance Sale',items:[
-        ['Light Green V Short',1500,'M',true,2000],
-        ['Light Green Basic',1500,'XS,S,M,L',true,1750],
-        ['Blue V Short',1750,'L',false,2000],
-        ['White V Short',1750,'S,M',false,2000],
-        ['White V Long',1950,'XS,M,L',false,2150],
-        ['Two Way Top',1650,'L',false,1950],
-        ['Dotted Top',1650,'XS,S,M',false,1850],
-        ['Brown Shoulder Top',1650,'S,M,L',false,1850],
-        ['Brown Short Dress',2500,'XS,S,M,L',true,2580],
-        ['Black Short Dress',2500,'XS,S',true,2580],
-        ['Blue Short Dress',2500,'XS,S',true,2580],
-        ['White Crush Pant',2500,'M',true],
-        ['Brown Crush Pant',2500,'S,M',true]
-      ]},
+      // BASICS
 
       {title:'Basics',items:[
+
         ['Black Basic',1750,'S,M,L'],
+
         ['White Basic',1750,'XS,S,M,L'],
-        ['Brown Basic',1750,'XS,S,M,L'],
-        ['Rosewood Basic',1750,'S,M'],
+
+        ['Light Green Basic',1500,'XS,S,M,L',true,1750],
+
+        ['Mint Basic',1750,'XS,S,M'],
+
         ['Dark Green Basic',1750,'XS,S,M'],
+
         ['Dark Blue Basic',1750,'XS,S,M'],
-        ['Light Blue Basic',1750,'XS,S,M'],
+
         ['Sky Blue Basic',1750,'M,L'],
+
+        ['Light Blue Basic',1750,'XS,S,M'],
+
         ['Red Basic',1750,'S,M'],
+
         ['Pink Basic',1750,'XS,S,M'],
-        ['Yellow Basic',1750,'XS,S,M'],
-        ['Mint Basic',1750,'XS,S,M']
+
+        ['Brown Basic',1750,'XS,S,M,L'],
+
+        ['Rosewood Basic',1750,'S,M'],
+
+        ['Yellow Basic',1750,'XS,S,M']
+
       ]},
 
-      {title:'Long Dresses',items:[
-        ['Burgundy Long Dress',2650,'XS,S,M',true],
-        ['Black Long Dress',2650,'S,M,L',true]
-      ]},
+      // OTHER TOPS
 
       {title:'Other Tops',items:[
-        ['Girly Top',2000,'XS,S,M,L'],
+
         ['Cherry Top',2350,'XS,M,L',true],
-        ['Dark Blue Wrap',2450,'XS'],
-        ['Light Blue Wrap',2450,'XS'],
+
+        ['Girly Top',2000,'XS,S,M,L'],
+
+        ['Light Green V Short',1500,'M',true,2000],
+
+        ['Blue V Short',1750,'L',false,2000],
+
+        ['White V Short',1750,'S,M',false,2000],
+
+        ['White V Long',1950,'XS',false,2150],
+
         ['Blue V Long',2150,'XS,S,L'],
+
+        ['Two Way Top',1650,'L',false,1950],
+
+        ['Dotted Top',1650,'XS,S,M',false,1850],
+
+        ['Brown Shoulder Top',1650,'S,M,L',false,1850],
+
+        ['Dark Blue Wrap',2450,'XS'],
+
+        ['Light Blue Wrap',2450,'XS'],
+
         ['Lace Top',2550,'XS,S,M,L'],
+
         ['Tie Halter',2450,'XS,S,M,L'],
+
         ['Bodysuit',2550,'XS,S,M,L']
+
       ]},
+
+      // DRESSES
+
+      {title:'Dresses',items:[
+
+        ['Burgundy Long Dress',2650,'XS,S,M',true],
+
+        ['Black Long Dress',2650,'S,M,L',true],
+
+        ['Brown Short Dress',2500,'XS,S,M,L',true,2580],
+
+        ['Black Short Dress',2500,'XS,S',true,2580],
+
+        ['Blue Short Dress',2500,'XS,S',true,2580]
+
+      ]},
+
+      // ONE SHOULDER TEES
 
       {title:'One Shoulder Tees',items:[
+
         ['Shell Tee',2850,'Free Size'],
+
         ['London Tee',2850,'Free Size'],
+
         ['Margarita Tee',2850,'Free Size'],
+
         ['Black London Tee',2850,'Free Size']
+
       ]},
 
-      {title:'Linen Pants',items:[
+      // PANTS
+
+      {title:'Pants',items:[
+
         ['Black Linen Pant',2750,'Free Size'],
-        ['White Linen Pant',2750,'Free Size']
+
+        ['White Linen Pant',2750,'Free Size'],
+
+        ['White Crush Pant',2500,'M',true],
+
+        ['Brown Crush Pant',2500,'S,M',true]
+
       ]}
 
     ];
 
-    // Black Crush Pant remains removed because it is sold out.
-    // White Tie Shirt, Maza Shirt and Black Shoulder Top
-    // remain hidden as previously requested.
+    // BLACK FRIDAY BANNER
 
     const blackFridayBanner=`
+
       <div class="sale-heading">
 
         <svg class="black-friday-banner"
@@ -473,7 +528,12 @@
         </svg>
 
       </div>
+
     `;
+
+    if(blackFriday){
+      document.getElementById('promotion').innerHTML=blackFridayBanner;
+    }
 
     const imageIcon='<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m3 17 5-5 4 4 3-3 6 6"/></svg>';
 
@@ -495,7 +555,7 @@
 
     const root=document.getElementById('catalogue');
 
-    collections.forEach((collection,index)=>{
+    collections.forEach(collection=>{
 
       const visibleItems=collection.items.filter(
         item=>!hiddenProducts.includes(item[0])
@@ -505,24 +565,9 @@
 
       const section=document.createElement('section');
 
-      section.className=index===0&&!blackFriday?'sale':'';
-
-      let heading;
-
-      if(index===0){
-
-        heading=blackFriday
-          ?blackFridayBanner
-          :`<div class="sale-heading">
-              <h2>CLEARANCE SALE</h2>
-              <p>${visibleItems.length} SELECTED DESIGNS · LIMITED STOCK</p>
-            </div>`;
-
-      }else{
-
-        heading='<h2>'+safe(collection.title)+'</h2><div class="underline"></div>';
-
-      }
+      const heading=
+        '<h2>'+safe(collection.title)+'</h2>'+
+        '<div class="underline"></div>';
 
       section.innerHTML=heading+'<div class="grid"></div>';
 
@@ -540,9 +585,11 @@
           ?(specialPrices[name]??original??price)
           :price;
 
-        const showOldPrice=!blackFriday&&original&&original>price;
+        const showOldPrice=
+          !blackFriday&&original&&original>price;
 
-        const showFreeDelivery=!blackFriday&&free;
+        const showFreeDelivery=
+          !blackFriday&&free;
 
         product.innerHTML=`
 
@@ -554,15 +601,28 @@
           <div class="name">${safe(name)}</div>
 
           <div class="price">
-            ${showOldPrice?`<span class="old">${money(original)}</span>`:''}
-            <strong>${money(displayPrice)}</strong>
+
+            ${showOldPrice
+              ?`<span class="old">${money(original)}</span>`
+              :''}
+
+            <strong class="${showOldPrice?'sale-price':''}">
+              ${money(displayPrice)}
+            </strong>
+
           </div>
 
           <div class="sizes">
-            ${sizes.split(',').map(size=>`<span class="size">${safe(size)}</span>`).join('')}
+
+            ${sizes.split(',').map(size=>
+              `<span class="size">${safe(size)}</span>`
+            ).join('')}
+
           </div>
 
-          ${showFreeDelivery?`<div class="delivery">${truckIcon} FREE DELIVERY</div>`:''}
+          ${showFreeDelivery
+            ?`<div class="delivery">${truckIcon} FREE DELIVERY</div>`
+            :''}
 
         `;
 
@@ -585,16 +645,6 @@
       root.appendChild(section);
 
     });
-
-    const logo=new Image();
-
-    logo.alt='ZaraCloud';
-
-    logo.onload=()=>{
-      document.getElementById('brandName').replaceWith(logo);
-    };
-
-    logo.src='logo.png';
 
   </script>
 
