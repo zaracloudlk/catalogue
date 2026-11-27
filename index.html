@@ -5,74 +5,340 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#ffffff">
   <title>ZaraCloud | Catalogue</title>
+
+  <meta name="description" content="Browse our available styles and sizes. COD available and islandwide delivery.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ZaraCloud">
+  <meta property="og:title" content="ZARACLOUD.CO | Catalogue">
+  <meta property="og:description" content="Check out our available styles and sizes.">
+  <meta property="og:url" content="https://zaracloudlk.github.io/catalogue/">
+  <meta property="og:image" content="https://zaracloudlk.github.io/catalogue/preview.png">
+  <meta property="og:image:secure_url" content="https://zaracloudlk.github.io/catalogue/preview.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:alt" content="ZARACLOUD.CO">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ZARACLOUD.CO | Catalogue">
+  <meta name="twitter:description" content="Check out our available styles and sizes.">
+  <meta name="twitter:image" content="https://zaracloudlk.github.io/catalogue/preview.png">
+
   <style>
-    :root{--lavender:#eee5f6;--purple:#765391;--ink:#332b39;--muted:#9d92a4}
-    *{box-sizing:border-box}body{margin:0;background:#fff;color:var(--ink);font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
-    .wrap{max-width:850px;margin:auto;padding:0 14px}.brand{text-align:center;padding:34px 0 23px}
-    .brand-name{display:inline-block;background:#e8def0;color:#4f3e5c;font-family:Georgia,serif;font-size:29px;letter-spacing:2px;padding:16px 25px}
-    .brand img{max-width:210px;max-height:95px;object-fit:contain}.brand p{font-size:10px;color:#8b7998;letter-spacing:1.1px;line-height:1.8;margin:15px 0 0}
-    section{padding:14px 0 30px;border-bottom:1px solid #eee7f1}h2{text-align:center;font-family:Georgia,serif;font-weight:normal;font-size:24px;margin:12px 0 22px;color:#4e3d5b}
-    .sale-heading{background:#f0e8f6;text-align:center;padding:13px 5px 11px;margin-bottom:21px}.sale-heading h2{margin:0;font-size:23px;color:#624878}.sale-heading p{font-size:10px;color:#866e99;letter-spacing:1px;margin:8px 0 0}
-    .underline{width:38px;height:2px;background:#d8c4e8;margin:-12px auto 22px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:23px 13px}
-    .product{min-width:0}.photo{width:100%;aspect-ratio:3/4;border-radius:6px;background:#f4f0f6;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;overflow:hidden}
-    .product:nth-child(even) .photo{background:#f8f5fa}.photo svg{width:29px;height:29px;stroke:#b5a2c2;fill:none;stroke-width:1.5}.photo span{font-size:11px;color:#a28eaf}.photo img{display:block;width:100%;height:100%;object-fit:cover}
-    .name{font-size:13px;font-weight:600;margin:9px 0 6px;line-height:1.35}.price{display:flex;gap:9px;align-items:baseline;flex-wrap:wrap;margin-bottom:8px}.price strong{font-size:14px;color:#332b39}.sale .price strong{color:var(--purple)}.old{color:var(--muted);text-decoration:line-through;font-size:11px}
-    .sizes{display:flex;gap:4px;flex-wrap:wrap}.size{background:#f0e8f6;color:#765a91;border-radius:3px;font-size:10px;padding:5px 8px;font-weight:600}
-    .delivery{display:inline-flex;gap:5px;align-items:center;background:#eee5f6;color:#6e5289;border-radius:3px;font-size:10px;font-weight:600;padding:6px 8px;margin-top:8px}
-    .delivery svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.8}
-    footer{text-align:center;padding:36px 0 45px}footer h3{font-family:Georgia,serif;font-weight:normal;letter-spacing:2px;color:#59456b;font-size:19px}footer p{font-size:12px;color:#8b7998;line-height:1.6}footer a{font-size:12px;color:#765391;text-decoration:none;margin:0 8px}
-    @media(min-width:600px){.wrap{padding:0 28px}.grid{gap:30px 22px}.name{font-size:15px}.price strong{font-size:16px}.size{font-size:11px}.brand{padding-top:42px}}
-  
-@media print {
-  @page {
-    size: 110mm 1800mm;
-    margin: 0;
-  }
+    :root{
+      --lavender:#eee5f6;
+      --purple:#765391;
+      --ink:#332b39;
+      --muted:#9d92a4;
+    }
 
-  html, body {
-    width: 110mm !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
-  }
+    *{box-sizing:border-box}
 
-  .wrap {
-    width: 100% !important;
-    max-width: none !important;
-    padding: 0 14px !important;
-  }
+    body{
+      margin:0;
+      background:#fff;
+      color:var(--ink);
+      font-family:Arial,Helvetica,sans-serif;
+      -webkit-font-smoothing:antialiased;
+    }
 
-  .grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 23px 13px !important;
-  }
+    .wrap{
+      max-width:850px;
+      margin:auto;
+      padding:0 14px;
+    }
 
-  .product, .photo {
-    break-inside: avoid !important;
-  }
+    .brand{
+      text-align:center;
+      padding:34px 0 23px;
+    }
 
-  section {
-    break-inside: auto !important;
-  }
+    .brand-name{
+      display:inline-block;
+      background:#e8def0;
+      color:#4f3e5c;
+      font-family:Georgia,serif;
+      font-size:29px;
+      letter-spacing:2px;
+      padding:16px 25px;
+    }
 
-  .brand {
-    padding-top: 34px !important;
-  }
-}
+    .brand img{
+      max-width:210px;
+      max-height:95px;
+      object-fit:contain;
+    }
 
+    .brand p{
+      font-size:10px;
+      color:#8b7998;
+      letter-spacing:1.1px;
+      line-height:1.8;
+      margin:15px 0 0;
+    }
+
+    section{
+      padding:14px 0 30px;
+      border-bottom:1px solid #eee7f1;
+    }
+
+    h2{
+      text-align:center;
+      font-family:Georgia,serif;
+      font-weight:normal;
+      font-size:24px;
+      margin:12px 0 22px;
+      color:#4e3d5b;
+    }
+
+    .sale-heading{
+      background:#eee5f6;
+      text-align:center;
+      padding:25px 10px;
+      margin-bottom:21px;
+    }
+
+    .sale-heading h2{
+      margin:0;
+      font-size:23px;
+      color:#624878;
+    }
+
+    .sale-heading p{
+      font-size:10px;
+      color:#866e99;
+      letter-spacing:1px;
+      margin:8px 0 0;
+    }
+
+    .black-friday-banner{
+      display:block;
+      width:100%;
+      max-width:440px;
+      height:auto;
+      margin:auto;
+    }
+
+    .underline{
+      width:38px;
+      height:2px;
+      background:#d8c4e8;
+      margin:-12px auto 22px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:23px 13px;
+    }
+
+    .product{min-width:0}
+
+    .photo{
+      width:100%;
+      aspect-ratio:3/4;
+      border-radius:6px;
+      background:#f4f0f6;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      gap:8px;
+      overflow:hidden;
+    }
+
+    .product:nth-child(even) .photo{
+      background:#f8f5fa;
+    }
+
+    .photo svg{
+      width:29px;
+      height:29px;
+      stroke:#b5a2c2;
+      fill:none;
+      stroke-width:1.5;
+    }
+
+    .photo span{
+      font-size:11px;
+      color:#a28eaf;
+    }
+
+    .photo img{
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .name{
+      font-size:13px;
+      font-weight:600;
+      margin:9px 0 6px;
+      line-height:1.35;
+    }
+
+    .price{
+      display:flex;
+      gap:9px;
+      align-items:baseline;
+      flex-wrap:wrap;
+      margin-bottom:8px;
+    }
+
+    .price strong{
+      font-size:14px;
+      color:#332b39;
+    }
+
+    .sale .price strong{
+      color:var(--purple);
+    }
+
+    .old{
+      color:var(--muted);
+      text-decoration:line-through;
+      font-size:11px;
+    }
+
+    .sizes{
+      display:flex;
+      gap:4px;
+      flex-wrap:wrap;
+    }
+
+    .size{
+      background:#f0e8f6;
+      color:#765a91;
+      border-radius:3px;
+      font-size:10px;
+      padding:5px 8px;
+      font-weight:600;
+    }
+
+    .delivery{
+      display:inline-flex;
+      gap:5px;
+      align-items:center;
+      background:#eee5f6;
+      color:#6e5289;
+      border-radius:3px;
+      font-size:10px;
+      font-weight:600;
+      padding:6px 8px;
+      margin-top:8px;
+    }
+
+    .delivery svg{
+      width:13px;
+      height:13px;
+      fill:none;
+      stroke:currentColor;
+      stroke-width:1.8;
+    }
+
+    footer{
+      text-align:center;
+      padding:36px 0 45px;
+    }
+
+    footer h3{
+      font-family:Georgia,serif;
+      font-weight:normal;
+      letter-spacing:2px;
+      color:#59456b;
+      font-size:19px;
+    }
+
+    footer p{
+      font-size:12px;
+      color:#8b7998;
+      line-height:1.6;
+    }
+
+    footer a{
+      font-size:12px;
+      color:#765391;
+      text-decoration:none;
+      margin:0 8px;
+    }
+
+    @media(min-width:600px){
+      .wrap{padding:0 28px}
+      .grid{gap:30px 22px}
+      .name{font-size:15px}
+      .price strong{font-size:16px}
+      .size{font-size:11px}
+      .brand{padding-top:42px}
+    }
+
+    @media print{
+      @page{
+        size:110mm 1800mm;
+        margin:0;
+      }
+
+      html,body{
+        width:110mm !important;
+        margin:0 !important;
+        padding:0 !important;
+        -webkit-print-color-adjust:exact !important;
+        print-color-adjust:exact !important;
+      }
+
+      .wrap{
+        width:100% !important;
+        max-width:none !important;
+        padding:0 14px !important;
+      }
+
+      .grid{
+        grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+        gap:23px 13px !important;
+      }
+
+      .product,.photo{
+        break-inside:avoid !important;
+      }
+
+      section{
+        break-inside:auto !important;
+      }
+
+      .brand{
+        padding-top:34px !important;
+      }
+    }
   </style>
 </head>
+
 <body>
+
   <main class="wrap">
-    <header class="brand"><div class="brand-name" id="brandName">ZARA CLOUD</div><p>COD AVAILABLE · ISLANDWIDE DELIVERY · LIMITED STOCK</p></header>
+
+    <header class="brand">
+      <div class="brand-name" id="brandName">ZARA CLOUD</div>
+      <p>COD AVAILABLE · ISLANDWIDE DELIVERY · LIMITED STOCK</p>
+    </header>
+
     <div id="catalogue"></div>
-    <footer><h3>ZARA CLOUD</h3><p>To order, send us a screenshot or product name.</p><a href="https://www.instagram.com/zaracloud.co/" target="_blank" rel="noopener">Instagram @zaracloud.co</a><a href="https://wa.me/94763908909" target="_blank" rel="noopener">WhatsApp - 0763908909</a></footer>
+
+    <footer>
+      <h3>ZARA CLOUD</h3>
+      <p>To order, send us a screenshot or product name.</p>
+      <a href="https://www.instagram.com/zaracloud.co/" target="_blank" rel="noopener">Instagram @zaracloud.co</a>
+      <a href="https://wa.me/94763908909" target="_blank" rel="noopener">WhatsApp - 0763908909</a>
+    </footer>
+
   </main>
+
   <script>
-    // Each item: [name, price, available sizes, free delivery, original price if on sale].
-    // To remove a sold-out size later, simply delete it from the sizes string.
+
+    // Change to false after Black Friday to restore clearance prices.
+    const blackFriday = true;
+
+    // Previous clearance prices are preserved.
+    // Each item: [name, price, sizes, free delivery, original price]
+
     const collections = [
+
       {title:'Clearance Sale',items:[
         ['Light Green V Short',1500,'XS,S,M,L',true,2000],
         ['Light Green Basic',1500,'XS,S,M,L',true,1750],
@@ -89,18 +355,27 @@
         ['White Crush Pant',2500,'M',true],
         ['Brown Crush Pant',2500,'S,M',true]
       ]},
+
       {title:'Basics',items:[
-        ['Black Basic',1750,'XS,S,M,L'],['White Basic',1750,'XS,S,M,L'],
-        ['Brown Basic',1750,'XS,S,M,L'],['Rosewood Basic',1750,'S,M'],
-        ['Dark Green Basic',1750,'XS,S,M'],['Dark Blue Basic',1750,'XS,S,M'],
-        ['Light Blue Basic',1750,'XS,S,M'],['Sky Blue Basic',1750,'S,M,L'],
-        ['Red Basic',1750,'XS,S,M'],['Pink Basic',1750,'XS,S,M,L'],
-        ['Yellow Basic',1750,'XS,S,M'],['Mint Basic',1750,'XS,S,M']
+        ['Black Basic',1750,'XS,S,M,L'],
+        ['White Basic',1750,'XS,S,M,L'],
+        ['Brown Basic',1750,'XS,S,M,L'],
+        ['Rosewood Basic',1750,'S,M'],
+        ['Dark Green Basic',1750,'XS,S,M'],
+        ['Dark Blue Basic',1750,'XS,S,M'],
+        ['Light Blue Basic',1750,'XS,S,M'],
+        ['Sky Blue Basic',1750,'S,M,L'],
+        ['Red Basic',1750,'XS,S,M'],
+        ['Pink Basic',1750,'XS,S,M,L'],
+        ['Yellow Basic',1750,'XS,S,M'],
+        ['Mint Basic',1750,'XS,S,M']
       ]},
+
       {title:'Long Dresses',items:[
         ['Burgundy Long Dress',2650,'XS,S,M,L',true],
         ['Black Long Dress',2650,'S,M,L',true]
       ]},
+
       {title:'Other Tops',items:[
         ['Girly Top',2000,'XS,S,M,L'],
         ['Cherry Top',2350,'XS,S,M,L',true],
@@ -111,57 +386,184 @@
         ['Tie Halter',2450,'XS,S,M,L'],
         ['Bodysuit',2550,'XS,S,M,L']
       ]},
+
       {title:'One Shoulder Tees',items:[
         ['Shell Tee',2850,'Free Size'],
         ['London Tee',2850,'Free Size'],
         ['Margarita Tee',2850,'Free Size'],
         ['Black London Tee',2850,'Free Size']
       ]},
+
       {title:'Linen Pants',items:[
         ['Black Linen Pant',2750,'Free Size'],
         ['White Linen Pant',2750,'Free Size']
       ]}
+
     ];
 
+    const blackFridayBanner=`
+      <div class="sale-heading">
+
+        <svg class="black-friday-banner"
+             viewBox="0 0 340 145"
+             role="img"
+             aria-label="Black Friday Sale. Buy any 2 items and get free delivery. Valid on 27th, 28th and 29th only.">
+
+          <text x="170" y="20"
+                text-anchor="middle"
+                font-family="Arial,sans-serif"
+                font-size="15"
+                font-weight="600"
+                letter-spacing="3"
+                fill="#765391">BLACK FRIDAY SALE</text>
+
+          <text x="170" y="59"
+                text-anchor="middle"
+                font-family="Arial,sans-serif"
+                font-size="29"
+                font-weight="800"
+                letter-spacing="-0.8"
+                fill="#503360">BUY ANY 2 ITEMS</text>
+
+          <text x="170" y="81"
+                text-anchor="middle"
+                font-family="Arial,sans-serif"
+                font-size="15"
+                font-weight="600"
+                fill="#503360">&amp; GET</text>
+
+          <text x="170" y="115"
+                text-anchor="middle"
+                font-family="Arial,sans-serif"
+                font-size="35"
+                font-weight="900"
+                letter-spacing="-1.2"
+                fill="#503360">FREE DELIVERY</text>
+
+          <text x="170" y="140"
+                text-anchor="middle"
+                font-family="Arial,sans-serif"
+                font-size="11"
+                fill="#765391">Valid on 27th, 28th &amp; 29th only</text>
+
+        </svg>
+
+      </div>
+    `;
+
     const imageIcon='<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m3 17 5-5 4 4 3-3 6 6"/></svg>';
+
     const truckIcon='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h11v11H3zM14 10h4l3 4v3h-7z"/><circle cx="7.5" cy="18" r="2"/><circle cx="17.5" cy="18" r="2"/></svg>';
-    const slug=name=>name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+
+    const slug=name=>name.toLowerCase()
+      .replace(/[^a-z0-9]+/g,'-')
+      .replace(/^-|-$/g,'');
+
     const money=n=>'Rs. '+n.toLocaleString('en-US');
-    const safe=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+    const safe=s=>String(s).replace(/[&<>"']/g,c=>({
+      '&':'&amp;',
+      '<':'&lt;',
+      '>':'&gt;',
+      '"':'&quot;',
+      "'":'&#39;'
+    }[c]));
+
     const root=document.getElementById('catalogue');
+
     collections.forEach((collection,index)=>{
+
       const section=document.createElement('section');
-      section.className=index===0?'sale':'';
-      const heading=index===0
-        ?'<div class="sale-heading"><h2>CLEARANCE SALE</h2><p>14 SELECTED DESIGNS · LIMITED STOCK</p></div>'
-        :'<h2>'+safe(collection.title)+'</h2><div class="underline"></div>';
+
+      section.className=index===0&&!blackFriday?'sale':'';
+
+      let heading;
+
+      if(index===0){
+
+        heading=blackFriday
+          ?blackFridayBanner
+          :'<div class="sale-heading"><h2>CLEARANCE SALE</h2><p>14 SELECTED DESIGNS · LIMITED STOCK</p></div>';
+
+      }else{
+
+        heading='<h2>'+safe(collection.title)+'</h2><div class="underline"></div>';
+
+      }
+
       section.innerHTML=heading+'<div class="grid"></div>';
+
       const grid=section.querySelector('.grid');
+
       collection.items.forEach(([name,price,sizes,free=false,original])=>{
+
         const product=document.createElement('article');
+
         product.className='product';
+
         const photoName=slug(name)+'.jpg';
-        product.innerHTML=`<div class="photo">${imageIcon}<span>Product photo</span></div>
+
+        const displayPrice=blackFriday
+          ?(original??price)
+          :price;
+
+        const showOldPrice=!blackFriday&&original&&original>price;
+
+        const showFreeDelivery=!blackFriday&&free;
+
+        product.innerHTML=`
+
+          <div class="photo">
+            ${imageIcon}
+            <span>Product photo</span>
+          </div>
+
           <div class="name">${safe(name)}</div>
-          <div class="price">${original&&original>price?`<span class="old">${money(original)}</span>`:''}<strong>${money(price)}</strong></div>
-          <div class="sizes">${sizes.split(',').map(size=>`<span class="size">${safe(size)}</span>`).join('')}</div>
-          ${free?`<div class="delivery">${truckIcon} FREE DELIVERY</div>`:''}`;
-        // Add photos later by dragging JPGs into a GitHub folder named "images".
-        // Example: images/green-v-short.jpg
+
+          <div class="price">
+            ${showOldPrice?`<span class="old">${money(original)}</span>`:''}
+            <strong>${money(displayPrice)}</strong>
+          </div>
+
+          <div class="sizes">
+            ${sizes.split(',').map(size=>`<span class="size">${safe(size)}</span>`).join('')}
+          </div>
+
+          ${showFreeDelivery?`<div class="delivery">${truckIcon} FREE DELIVERY</div>`:''}
+
+        `;
+
         const img=new Image();
+
         img.alt=name;
         img.loading='eager';
-        img.onload=()=>{const box=product.querySelector('.photo');box.replaceChildren(img)};
+
+        img.onload=()=>{
+          const box=product.querySelector('.photo');
+          box.replaceChildren(img);
+        };
+
         img.src='images/'+photoName;
+
         grid.appendChild(product);
+
       });
+
       root.appendChild(section);
+
     });
-    // Optional logo: upload an image named logo.png to the repository root.
+
     const logo=new Image();
+
     logo.alt='ZaraCloud';
-    logo.onload=()=>document.getElementById('brandName').replaceWith(logo);
+
+    logo.onload=()=>{
+      document.getElementById('brandName').replaceWith(logo);
+    };
+
     logo.src='logo.png';
+
   </script>
+
 </body>
 </html>
