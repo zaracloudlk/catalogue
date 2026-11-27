@@ -338,7 +338,7 @@
 
     const blackFriday = true;
 
-    // Special Black Friday prices for selected products.
+    // Special Black Friday prices.
     // Previous original prices remain preserved.
 
     const specialPrices = {
@@ -346,18 +346,27 @@
       'Light Green Basic':1500
     };
 
-    // Inventory updated November 27, 2026.
-    // Each item: [name, price, sizes, free delivery, original price]
+    // Temporarily hidden until stock is confirmed on Monday.
+    // Product details and photos are preserved.
+
+    const hiddenProducts = [
+      'Blue Short Dress',
+      'Blue V Long',
+      'Light Blue Wrap'
+    ];
+
+    // Each item:
+    // [name, price, sizes, free delivery, original price]
 
     const collections = [
 
       {title:'Clearance Sale',items:[
         ['Light Green V Short',1500,'XS,S,M',true,2000],
         ['Light Green Basic',1500,'XS,S,M,L',true,1750],
-        ['Blue V Short',1750,'S,L',false,2000],
+        ['Blue V Short',1750,'L',false,2000],
         ['White V Short',1750,'XS,S,M',false,2000],
         ['White V Long',1950,'XS,M,L',false,2150],
-        ['Two Way Top',1650,'S,L',false,1950],
+        ['Two Way Top',1650,'L',false,1950],
         ['Dotted Top',1650,'XS,S,M',false,1850],
         ['Brown Shoulder Top',1650,'S,M,L',false,1850],
         ['Brown Short Dress',2500,'XS,S,M,L',true,2580],
@@ -376,7 +385,7 @@
         ['Dark Blue Basic',1750,'XS,S,M'],
         ['Light Blue Basic',1750,'XS,S,M'],
         ['Sky Blue Basic',1750,'M,L'],
-        ['Red Basic',1750,'XS,S,M'],
+        ['Red Basic',1750,'S,M'],
         ['Pink Basic',1750,'XS,S,M'],
         ['Yellow Basic',1750,'XS,S,M'],
         ['Mint Basic',1750,'XS,S,M']
@@ -391,7 +400,7 @@
         ['Girly Top',2000,'XS,S,M,L'],
         ['Cherry Top',2350,'XS,S,M,L',true],
         ['Dark Blue Wrap',2450,'XS'],
-        ['Light Blue Wrap',2450,'XS,M'],
+        ['Light Blue Wrap',2450,'XS'],
         ['Blue V Long',2150,'XS,S,L'],
         ['Lace Top',2550,'XS,S,M,L'],
         ['Tie Halter',2450,'XS,S,M,L'],
@@ -412,8 +421,7 @@
 
     ];
 
-    // Hidden products:
-    // Black Crush Pant - sold out.
+    // Black Crush Pant remains removed because it is sold out.
     // White Tie Shirt, Maza Shirt and Black Shoulder Top
     // remain hidden as previously requested.
 
@@ -489,6 +497,12 @@
 
     collections.forEach((collection,index)=>{
 
+      const visibleItems=collection.items.filter(
+        item=>!hiddenProducts.includes(item[0])
+      );
+
+      if(visibleItems.length===0)return;
+
       const section=document.createElement('section');
 
       section.className=index===0&&!blackFriday?'sale':'';
@@ -501,7 +515,7 @@
           ?blackFridayBanner
           :`<div class="sale-heading">
               <h2>CLEARANCE SALE</h2>
-              <p>${collection.items.length} SELECTED DESIGNS · LIMITED STOCK</p>
+              <p>${visibleItems.length} SELECTED DESIGNS · LIMITED STOCK</p>
             </div>`;
 
       }else{
@@ -514,7 +528,7 @@
 
       const grid=section.querySelector('.grid');
 
-      collection.items.forEach(([name,price,sizes,free=false,original])=>{
+      visibleItems.forEach(([name,price,sizes,free=false,original])=>{
 
         const product=document.createElement('article');
 
